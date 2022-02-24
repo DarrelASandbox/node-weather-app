@@ -10,7 +10,15 @@ const forecast = (latitude, longitude, callback) => {
     else {
       callback(
         undefined,
-        `${response.body.location.country} ${response.body.location.region} (${response.body.location.localtime}): ${response.body.current.weather_descriptions[0]}. It is currently ${response.body.current.temperature} degree and feels like ${response.body.current.feelslike} degree.`
+        // `${response.body.location.country} ${response.body.location.region} (${response.body.location.localtime}): ${response.body.current.weather_descriptions[0]}. It is currently ${response.body.current.temperature} degree and feels like ${response.body.current.feelslike} degree.`
+        {
+          country: response.body.location.country,
+          region: response.body.location.region,
+          localtime: response.body.location.localtime,
+          weather_description: response.body.current.weather_descriptions[0],
+          temperature: response.body.current.temperature,
+          feelslike: response.body.current.feelslike,
+        }
       );
     }
   });

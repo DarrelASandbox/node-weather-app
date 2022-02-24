@@ -1,27 +1,30 @@
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
-const message1 = document.querySelector('#message1');
-const message2 = document.querySelector('#message2');
+const printPuzzle = document.querySelector('#printPuzzle');
+const printGeoCoords = document.querySelector('#printGeoCoords');
+const printLocation = document.querySelector('#printLocation');
+const printForecast = document.querySelector('#printForecast');
 
 fetch('https://puzzle.mead.io/puzzle').then((response) => {
   response.json().then((data) => {
-    message1.textContent = data.puzzle;
+    printPuzzle.textContent = data.puzzle;
   });
 });
 
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  message2.textContent = 'Loading...';
+  printGeoCoords.textContent = 'Loading...';
 
   fetch(`/weather?location=${search.value}`).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         console.log(data.error);
-        message2.textContent = data.error;
+        printGeoCoords.textContent = data.error;
       } else {
-        message2.textContent = `${data.latitude}, ${data.longitude}
-            ${data.forecast}`;
+        printGeoCoords.textContent = `Latitude: ${data.latitude}, Longitude: ${data.longitude}`;
+        printLocation.textContent = `${data.forecast.country} ${data.forecast.region} ${data.forecast.localtime}`;
+        printForecast.textContent = `${data.forecast.weather_description}: Temperature at ${data.forecast.temperature} degree and feels like ${data.forecast.feelslike} degree.`;
         search.value = '';
       }
     });
