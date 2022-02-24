@@ -6,6 +6,7 @@ import geoCoords from '../src/components/geoCoords.mjs';
 import forecast from '../src/components/forecast.mjs';
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // define paths for Express config
 const __filename = fileURLToPath(import.meta.url);
@@ -79,6 +80,6 @@ app.use((req, res, next) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000.');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}.`);
 });

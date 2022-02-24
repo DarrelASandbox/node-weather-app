@@ -4,8 +4,8 @@
   "description": "",
   "main": "./src/app.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon -e mjs,js,hbs"
+    "start": "node src/app.mjs",
+    "nodemon": "npx nodemon -e mjs,js,hbs"
   },
   "keywords": [],
   "author": "",
