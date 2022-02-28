@@ -1,7 +1,8 @@
 import request from 'request';
+import API_KEY from '../../config.mjs';
 
 const forecast = (latitude, longitude, callback) => {
-  const url = `http://api.weatherstack.com/current?access_key=00eec398cb4c12165c92fde520199e79&query=${latitude},${longitude}`;
+  const url = `http://api.weatherstack.com/current?access_key=${API_KEY.forecast}&query=${latitude},${longitude}`;
 
   request({ url, json: true }, (error, response) => {
     if (error) return callback('Something went wrong!');

@@ -1,9 +1,10 @@
 import request from 'request';
+import API_KEY from '../../config.mjs';
 
 const geoCoords = (location, callback) => {
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
     location
-  )}.json?access_token=pk.eyJ1Ijoib2JhbWF3YWxrZXIiLCJhIjoiY2t6eTY3a3poMDB6NzJ1czFxeWUwYnd0dCJ9.VUM1aD-VdYPH3Hruz6lq8w&limit=1`;
+  )}.json?access_token=${API_KEY.geoCoords}&limit=1`;
 
   if (location.length === 0) return console.log('Please provide a location.');
 

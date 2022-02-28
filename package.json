@@ -5,7 +5,7 @@
   "main": "./src/app.mjs",
   "scripts": {
     "start": "node src/app.mjs",
-    "nodemon": "npx nodemon -e mjs,js,hbs"
+    "dev": "npx nodemon -e mjs,js,hbs"
   },
   "keywords": [],
   "author": "",
